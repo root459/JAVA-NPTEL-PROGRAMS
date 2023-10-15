@@ -1,24 +1,15 @@
-class A implements Runnable{
+class ThreadId extends Thread{
 public void run(){
-for(int i=0;i<10;i++){
-System.out.println("A"+i);
+try{
+System.out.println("Thread "+Thread.currentThread().getId()+"in running");
+}
+catch(Exception e){
+System.out.println("excepiton caught");
 }}}
-class B implements Runnable{
-public void run(){
-for(int i=0;i<10;i++){
-System.out.println("B"+i);
-}}}
-class C implements Runnable{
-public void run(){
-for(int i=0;i<10;i++){
-System.out.println("C"+i);
-}}}
-class Demonstration28{
+public class Demonstration28{
 public static void main(String []args){
-Thread a=new Thread(new A());
-Thread b=new Thread(new B());
-Thread c=new Thread(new C());
-a.start();
-b.start();
-c.start();
-}}
+int n=8;//no. of threads
+for (int i=0;i<8;i++){
+ThreadId obj =new ThreadId();
+obj.start();
+}}}
